@@ -19,10 +19,10 @@
 def format_event(event):
     event_str= "Unknown event"
     if event['action'] == 'push':
-        event_str= f"<b>{event['author']}</b> pushed to <b>{event['to_branch']}</b> on <b>{event['timestamp']}</b>"
+        event_str= f"{event['author']} pushed to {event['to_branch']} on {event['timestamp']}"
     elif event['action'] == 'pull_request':
-        event_str= f"<b>{event['author']}</b> submitted a pull request from <b>{event['from_branch']}</b> to <b>{event['to_branch']}</b> on <b>{event['timestamp']}</b>"
+        event_str= f"{event['author']} submitted a pull request from {event['from_branch']} to {event['to_branch']} on {event['timestamp']}"
     elif event['action'] == 'merge':
-        event_str= f"<b>{event['author']}</b> merged branch <b>{event['from_branch']}</b> to <b>{event['to_branch']}</b> on <b>{event['timestamp']}</b>"
+        event_str= f"{event['author']} merged branch {event['from_branch']} to {event['to_branch']} on {event['timestamp']}"
     print(event_str)
     return event_str
