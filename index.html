@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repo Events</title>
+    <script>
+        async function fetchEvents() {
+            const response = await fetch('/events');
+            const events = await response.json();
+            const eventsList = document.getElementById('events-list');
+            eventsList.innerHTML = '';
+            events.forEach(event => {
+                const li = document.createElement('li');
+                li.textContent = event;
+                eventsList.appendChild(li);
+            });
+        }
+
+        setInterval(fetchEvents, 15000);
+        window.onload = fetchEvents;
+    </script>
+</head>
+<body>
+    <h1>Latest Repo Events</h1>
+    <ul id="events-list"></ul>
+</body>
+</html>
